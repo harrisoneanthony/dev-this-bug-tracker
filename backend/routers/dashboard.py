@@ -4,7 +4,8 @@ from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from . import schemas
 from config.database import SessionLocal
-from model import ticket
+from model import ticket, comment, group, status, group_user
+from model.user import User
 from app.main import get_db, get_current_user
 
 router = APIRouter()
@@ -20,7 +21,7 @@ def dashboard(
     date_opened: str = None,
     assigned_user_id: int = None,
     db: Session = Depends(get_db),
-    current_user: schemas.User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user)
 ):
     
     
