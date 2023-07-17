@@ -13,4 +13,3 @@ def render_home(request: Request):
 def login():
     # authentication logic
     return RedirectResponse(url="/dashboard")
-

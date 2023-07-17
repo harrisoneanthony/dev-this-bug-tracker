@@ -2,10 +2,10 @@ from fastapi import APIRouter, Request, Depends
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
-from . import schemas
 from config.database import SessionLocal
-from model import ticket
-from app.main import get_db, get_current_user
+from model import ticket, user
+from model.user import User
+from app.auth import get_db, get_current_user
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")
@@ -20,7 +20,7 @@ def dashboard(
     date_opened: str = None,
     assigned_user_id: int = None,
     db: Session = Depends(get_db),
-    current_user: schemas.User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user)
 ):
     
     
