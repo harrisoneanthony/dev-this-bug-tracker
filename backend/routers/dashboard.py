@@ -23,7 +23,6 @@ def dashboard(
     current_user: User = Depends(get_current_user)
 ):
     
-    
     # Retrieve tickets based on the show_all parameter
     if show_all:
         tickets = db.query(ticket).all()

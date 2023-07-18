@@ -1,7 +1,5 @@
-from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from jose import JWTError, jwt
 from config.database import engine, SessionLocal, Base
 from routers import dashboard, login
 from sqlalchemy.orm import Session
