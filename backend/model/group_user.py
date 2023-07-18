@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, DateTime, ForeignKey
 
-from database import Base
+from config.database import Base
 
 class GroupUser(Base):
     user_id = Column(Integer, ForeignKey("user.id"), primary_key=True)
